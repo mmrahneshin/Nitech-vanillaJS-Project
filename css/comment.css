@@ -1,0 +1,33 @@
+
+.comment {
+    display: block;
+    color: #394D60;
+    margin: 20px 0px 40px 5px
+}
+.user {
+    display: flex;
+}
+.comment p{
+    margin-top: 10px;
+}
+.comment i{
+    margin-right: 10px;
+}
+.date {
+    font-size: 13px;
+    color: #A3B6C8;
+}
+
+.emoji {
+    display: flex;
+    align-items: center;
+}
+.emoji button {
+    margin-top: 10px ;
+    margin-right: 5px;
+    border: none;
+    border-radius: 5px;
+    width: 30px;
+    background-color:#E9EDF2;
+    cursor: pointer;
+}

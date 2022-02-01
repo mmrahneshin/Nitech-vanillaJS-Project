@@ -1,0 +1,65 @@
+
+.form-design {
+    margin-top: 15px;
+}
+
+.form-design > div {
+    margin-bottom: 13px;
+}
+
+.form-design input[type="checkbox"] {
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+}
+
+
+.form-design label{
+    cursor: pointer;
+    margin-left: 10px;
+    color: #435668;
+}
+
+.input-design {
+    display: flex;
+    height: 35px;
+    margin-left: -10px;
+    border-radius: 5px;
+    padding-left: 10.2px;
+    background-color: #F2F5F7;
+    align-items: center;
+}
+
+
+.right-checkbox {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding-left: 15px;
+    padding-right: 5px;
+}
+
+.right-checkbox input[type="text"] {
+    width: 82%;
+    height: 28px;
+    padding: 5px;
+    font-size: medium;
+    border-radius: 5px;
+    color: #394D60;
+    border: solid 2px #E3E8EE;
+}
+
+.right-checkbox button {
+    width: 9%;
+    height: 28px;
+    margin-left: 5px;
+    cursor: pointer;
+    background-color: #FFFFFF;
+    border: solid 2px #E3E8EE;
+    border-radius: 5px;
+    color: #6281A0; 
+}
+
+.right-checkbox button:hover {
+    background-color: #E3E8EE;
+}

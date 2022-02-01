@@ -1,0 +1,21 @@
+.input-footer {
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.input-footer input {
+    width: 100%;
+    font-size: medium;
+    font-weight: 500;
+    background-color: #FFFFFF;
+    padding: 4px; 
+    color: #394D60;
+    border-radius: 5px;
+    border: solid 2px #E7EBF1;
+}
+
+.input-footer p{
+    position: absolute;
+    right: 5px;
+}
