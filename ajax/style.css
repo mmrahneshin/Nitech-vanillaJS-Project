@@ -1,0 +1,10 @@
+body {
+    background-color: blanchedalmond;
+}
+
+svg {
+    width: 100px;
+    height: 100px;
+    margin: 20px;
+    display: block;
+}
