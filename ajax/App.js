@@ -1,6 +1,8 @@
 var ajaxBtn = document.getElementById("ajax");
 var btn = document.getElementById("btn");
 var loadDiv = document.getElementById("loading");
+var tempLi = document.getElementById("tempLi");
+
 loadDiv.style.display = "none";
 btn.style.display = "none";
 var countries = document.getElementById("country-container");
@@ -19,7 +21,7 @@ const getApi = (url, func) => {
         loadDiv.style.display = "none";
 
         var ourData = JSON.parse(ourRequest.responseText);
-        data = ourData
+
         func(ourData);
     };
 
@@ -31,15 +33,7 @@ const showCountries = (data) => {
     var counter = 10;
     const country = document.createElement("ol");
     for (let i = counter - 10; i < counter; i++) {
-        const countryCard = document.createElement('li');
-        const image = document.createElement('img');
-        image.src = countryData[i].flags.png;
-        var htmlString = "";
-        htmlString += "<p>" + countryData[i].name.official + "</p>";
-        countryCard.innerHTML = htmlString;
-        countryCard.appendChild(image);
-        country.appendChild(countryCard);
-        btn.style.display = "block";
+        appendCountry(countryData[i], country, i);
     }
     countries.appendChild(country);
     counter += 10;
@@ -49,14 +43,7 @@ const showCountries = (data) => {
 const addCountries = (counter, country) => {
     btn.addEventListener("click", () => {
         for (let i = counter - 10; i < counter; i++) {
-            const countryCard = document.createElement('li');
-            const image = document.createElement('img');
-            image.src = countryData[i].flags.png;
-            var htmlString = "";
-            htmlString += "<p>" + countryData[i].name.official + "</p>";
-            countryCard.innerHTML = htmlString;
-            countryCard.appendChild(image);
-            country.appendChild(countryCard);
+            appendCountry(countryData[i], country, i);
         }
         counter += 10;
         countries.appendChild(country);
@@ -64,4 +51,14 @@ const addCountries = (counter, country) => {
             btn.remove();
         }
     });
+};
+
+const appendCountry = (theCountry, country, i) => {
+    const template = tempLi.content.firstElementChild.cloneNode(true);
+    template.id = "country" + `${i+1}`;
+    template.children[1].src = theCountry.flags.png;
+    template.children[0].innerHTML = theCountry.name.official;
+    console.log(template);
+    country.appendChild(template);
+    btn.style.display = "block";
 };
