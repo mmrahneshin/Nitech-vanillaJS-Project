@@ -5,8 +5,10 @@ var tempLi = document.getElementById("tempLi");
 
 loadDiv.style.display = "none";
 btn.style.display = "none";
+
 var countries = document.getElementById("country-container");
 var countryData;
+
 ajaxBtn.addEventListener("click", () => {
     getApi('https://restcountries.com/v3.1/all', showCountries);
     ajaxBtn.remove();
@@ -19,9 +21,7 @@ const getApi = (url, func) => {
 
     ourRequest.onload = () => {
         loadDiv.style.display = "none";
-
         var ourData = JSON.parse(ourRequest.responseText);
-
         func(ourData);
     };
 
