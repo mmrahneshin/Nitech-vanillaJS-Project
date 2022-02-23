@@ -1,68 +1,71 @@
-
-
 * {
     box-sizing: border-box;
     padding: 0;
-    margin: 0; 
-    font-family: Sans-serif , Tahoma, Geneva, Verdana ;
+    margin: 0;
+    font-family: Sans-serif, Tahoma, Geneva, Verdana;
     letter-spacing: 0.1px;
 }
 
 ::placeholder {
-    color: #8FA4BB;;
+    color: #8fa4bb;
 }
 
 .box-container {
-    background-color: #4352E1;
-    display:flex;
+    background-color: #4352e1;
+    display: flex;
     width: 100vw;
-    height: 100vh; 
+    height: 100vh;
     align-items: center;
     justify-content: center;
 }
+
 .center-box {
-    background-color: #FFFFFF;
-    display:flex;
+    background-color: #ffffff;
+    display: flex;
     height: auto;
     width: auto;
     border-radius: 15px;
     padding: 7px;
 }
 
+
 /* right box css */
+
 .right-box {
     position: relative;
     width: 35%;
     padding: 10px;
     padding-bottom: 35px;
     border-radius: 15px;
-    background-color: #F6F8F9;
-    border: solid 2px #E7EBF1;
+    background-color: #f6f8f9;
+    border: solid 2px #e7ebf1;
 }
 
-.top-right-box{
+.top-right-box {
     display: flex;
     justify-content: space-between;
 }
 
 .top-right-box h6 {
     margin: 5px 0px 0px 5px;
-    color:#61819F;
+    color: #61819f;
     font-size: 15px;
 }
 
 .top-right-box button {
-    color: #61819F;
-    background-color: #F6F8F9;
-    margin: 5px 5px ;
+    color: #61819f;
+    background-color: #f6f8f9;
+    margin: 5px 5px;
     border-radius: 50%;
     font-size: 15px;
-    border : none;
+    border: none;
     cursor: pointer;
 }
+
 .top-right-box button:hover {
-    background-color: #F6F8F9;
+    background-color: #f6f8f9;
 }
+
 .footer-rightbox {
     position: absolute;
     bottom: 5px;
@@ -71,14 +74,12 @@
     padding: 0px 10px;
 }
 
+
 /* right box css */
 
 
-
-
-
-
 /*left box css*/
+
 .left-box {
     width: 65%;
     padding: 11px 15px 11px 20px;
@@ -90,42 +91,44 @@
     align-items: baseline;
 }
 
-.status{
-    color: #8099B3;
+.status {
+    color: #8099b3;
     margin-left: -5px;
 }
 
-.button-top-left{
+.button-top-left {
     display: flex;
 }
 
-.button-top-left button{
+.button-top-left button {
     margin-left: 13px;
     border: none;
     border-radius: 5px;
     width: 20px;
     font-size: 16px;
     cursor: pointer;
-    color:  #6A88A5;
-    background-color: #FFFFFF;
+    color: #6a88a5;
+    background-color: #ffffff;
 }
+
 .button-top-left button:hover {
     background-color: rgb(221, 220, 220);
 }
 
-.slidebar{
+.slidebar {
     margin-top: 20px;
 }
 
-.slidebar h1{
+.slidebar h1 {
     color: #263340;
 }
+
 .slidebar-button {
     display: flex;
     justify-content: space-around;
     align-items: center;
-    background-color: #F2F5F7;
-    width: 200px; 
+    background-color: #f2f5f7;
+    width: 200px;
     height: 40px;
     border-radius: 10px;
     margin-top: 15px;
@@ -138,24 +141,24 @@
     cursor: pointer;
 }
 
-.slidebar-button  .b1 {
-    background-color: #F2F5F7;
+.slidebar-button .b1 {
+    background-color: #f2f5f7;
     border: none;
-    color: #6886A4;
+    color: #6886a4;
 }
 
 .slidebar-button .b1:hover {
-    background-color: #FFFFFF;
+    background-color: #ffffff;
 }
 
-.slidebar-button  .b2 {
-    background-color: #FFFFFF;
-    border: solid 2px #D5DDE5;
-    color: #3A4E61;
+.slidebar-button .b2 {
+    background-color: #ffffff;
+    border: solid 2px #d5dde5;
+    color: #3a4e61;
 }
 
-.slidebar-button  .b2:hover {
-    background-color: #F2F5F7;
+.slidebar-button .b2:hover {
+    background-color: #f2f5f7;
 }
 
 .footer-slidebar {
@@ -168,15 +171,16 @@
 .left-footer {
     display: flex;
 }
-.left-footer > i {
+
+.left-footer>i {
     color: #bec3c9;
     font-size: 25px;
 }
 
 .footer-slidebar p {
     display: flex;
-    background-color: #4352E1;
-    color: #FFFFFF;
+    background-color: #4352e1;
+    color: #ffffff;
     width: 30px;
     margin-left: 7px;
     border-radius: 5px;
@@ -186,15 +190,16 @@
 }
 
 .footer-slidebar button {
-    background-color: #FFFFFF;
+    background-color: #ffffff;
     padding: 5px 13px 5px 13px;
-    border: solid 2px #E3E8EE;
+    border: solid 2px #e3e8ee;
     border-radius: 5px;
-    color: #6281A0;
+    color: #6281a0;
     cursor: pointer;
 }
+
 .footer-slidebar button:hover {
-    background-color: #E3E8EE;
+    background-color: #e3e8ee;
 }
 
 .planning {
@@ -204,11 +209,11 @@
 
 .planning p {
     margin-right: 10px;
-    color: #839CB5;
+    color: #839cb5;
 }
 
 .planning hr {
-    color:  rgb(224, 224, 224 , 0.3);
+    color: rgb(224, 224, 224, 0.3);
 }
 
 .design {
@@ -218,9 +223,9 @@
 
 .design p {
     margin-right: 10px;
-    color: #839CB5;
+    color: #839cb5;
 }
 
 .design hr {
-    color: rgb(224, 224, 224 , 0.3);
+    color: rgb(224, 224, 224, 0.3);
 }

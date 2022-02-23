@@ -8,14 +8,14 @@
     width: 100%;
     font-size: medium;
     font-weight: 500;
-    background-color: #FFFFFF;
-    padding: 4px; 
-    color: #394D60;
+    background-color: #ffffff;
+    padding: 4px;
+    color: #394d60;
     border-radius: 5px;
-    border: solid 2px #E7EBF1;
+    border: solid 2px #e7ebf1;
 }
 
-.input-footer p{
+.input-footer p {
     position: absolute;
     right: 5px;
 }

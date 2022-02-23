@@ -1,9 +1,8 @@
-
 .form-design {
     margin-top: 15px;
 }
 
-.form-design > div {
+.form-design>div {
     margin-bottom: 13px;
 }
 
@@ -13,8 +12,7 @@
     cursor: pointer;
 }
 
-
-.form-design label{
+.form-design label {
     cursor: pointer;
     margin-left: 10px;
     color: #435668;
@@ -26,10 +24,9 @@
     margin-left: -10px;
     border-radius: 5px;
     padding-left: 10.2px;
-    background-color: #F2F5F7;
+    background-color: #f2f5f7;
     align-items: center;
 }
-
 
 .right-checkbox {
     display: flex;
@@ -45,8 +42,8 @@
     padding: 5px;
     font-size: medium;
     border-radius: 5px;
-    color: #394D60;
-    border: solid 2px #E3E8EE;
+    color: #394d60;
+    border: solid 2px #e3e8ee;
 }
 
 .right-checkbox button {
@@ -54,12 +51,12 @@
     height: 28px;
     margin-left: 5px;
     cursor: pointer;
-    background-color: #FFFFFF;
-    border: solid 2px #E3E8EE;
+    background-color: #ffffff;
+    border: solid 2px #e3e8ee;
     border-radius: 5px;
-    color: #6281A0; 
+    color: #6281a0;
 }
 
 .right-checkbox button:hover {
-    background-color: #E3E8EE;
+    background-color: #e3e8ee;
 }

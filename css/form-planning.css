@@ -1,8 +1,8 @@
-
 .form-planning {
     margin-top: 15px;
 }
-.form-planning input{
+
+.form-planning input {
     margin-bottom: 15px;
 }
 
@@ -11,8 +11,9 @@
     height: 16px;
     cursor: pointer;
     margin-right: 10px;
-} 
-.form-planning label{
+}
+
+.form-planning label {
     cursor: pointer;
     color: #435668;
 }
