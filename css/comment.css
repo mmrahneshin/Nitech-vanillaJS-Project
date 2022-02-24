@@ -1,3 +1,8 @@
+.allComment {
+    height: 475px;
+    overflow-x: auto;
+}
+
 .comment {
     display: block;
     color: #394D60;
@@ -9,6 +14,9 @@
 }
 
 .comment p {
+    display: block;
+    word-wrap: wrap;
+    word-break: break-all;
     margin-top: 10px;
 }
 

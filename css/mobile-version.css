@@ -4,6 +4,7 @@
     }
     .center-box {
         display: block;
+        width: auto;
         border-radius: 0px;
         padding: 10px;
     }

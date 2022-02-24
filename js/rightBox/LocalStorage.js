@@ -2,7 +2,7 @@ const getData = (name) => {
     return localStorage.getItem(name);
 };
 
-const convertDataToJSON = (name) => {
+const getDataAsJSON = (name) => {
     return JSON.parse(getData(name));
 };
 
@@ -11,7 +11,7 @@ const saveLocalStorage = (comment) => {
     if (getData("comments") === null) {
         comments = [];
     } else {
-        comments = convertDataToJSON("comments");
+        comments = getDataAsJSON("comments");
     }
     comments.push(comment);
     localStorage.setItem("comments", JSON.stringify(comments));
