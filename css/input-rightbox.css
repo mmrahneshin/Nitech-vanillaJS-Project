@@ -15,7 +15,11 @@
     border: solid 2px #e7ebf1;
 }
 
-.input-footer p {
+.input-footer button {
     position: absolute;
     right: 5px;
+    top: 5px;
+    border: none;
+    background-color: #ffffff;
+    cursor: pointer;
 }

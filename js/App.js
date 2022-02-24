@@ -5,20 +5,19 @@ const selectElement = (name) => {
 var tempComment = document.getElementById("temp-comment");
 var allComment = selectElement(".allComment");
 
-const commentsArr = [{
-        id: 1,
-        user: "Johannes Gerber",
-        text: "Just found this here on medium as an inspiration. Thought it could be helpful for thes task...",
-        time: "Yesterday . 4:29 pm",
-    },
-    {
-        id: 2,
-        user: "Mathias Brehm",
-        text: "Nice, thx, Will check it!",
-        time: "Today . 26 min",
-    },
-];
+const createEmojiButton = (backgroundColor, emoji, template) => {
+    let emojiButton = document.createElement("button");
+    emojiButton.style.backgroundColor = backgroundColor;
+    emojiButton.innerHTML = emoji;
+    template.querySelector(".emoji").appendChild(emojiButton);
+};
 
+const appendEmojiButton = (icon, template) => {
+    icon.forEach(emoji => {
+        createEmojiButton("#E9EDF2", emoji, template);
+    });
+    createEmojiButton("#f6f8f9", "&#128512;", template);
+};
 
 const addCommentToPage = (comment) => {
     const template = tempComment.content.firstElementChild.cloneNode(true);
@@ -26,8 +25,11 @@ const addCommentToPage = (comment) => {
     template.querySelector(".username").innerHTML = comment.user;
     template.querySelector(".text").innerHTML = comment.text;
     template.querySelector(".time").innerHTML = comment.time;
+    appendEmojiButton(comment.icon, template);
     allComment.appendChild(template);
 };
+
+
 
 const newComment = (comment) => {
     saveLocalStorage(comment);
@@ -45,7 +47,7 @@ const mounted = () => {
     if (result) {
         customFor(result, addCommentToPage);
     } else {
-        customFor(commentsArr, newComment);
+        customFor(defaultComment, newComment);
     }
 };
 
