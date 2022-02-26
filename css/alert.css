@@ -2,14 +2,12 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    position: absolute;
+    position: fixed;
     right: 0px;
-    width: 20%;
-    height: 5%;
+    top: 0px;
     margin: 10px;
-    padding: 30px;
+    padding: 10px;
     border-radius: 5px;
-    background-color: aquamarine;
     box-shadow: 0 0 15px 5px #ccc;
 }
 
@@ -33,4 +31,30 @@
     text-align: center;
     font-size: 1.6em;
     cursor: pointer;
+}
+
+.success-alert {
+    background-color: #a8f0c6;
+    border-left: 5px solid #3c8059;
+}
+
+.success-alert p {
+    color: #255037;
+}
+
+.success-alert i {
+    color: #255037;
+}
+
+.warning-alert {
+    background-color: #ffd48a;
+    border-left: 5px solid #b1740a;
+}
+
+.warning-alert p {
+    color: #6d4500;
+}
+
+.warning-alert i {
+    color: #6d4500;
 }

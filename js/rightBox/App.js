@@ -5,6 +5,7 @@ const selectElement = (name) => {
 var tempComment = document.getElementById("temp-comment");
 var allComment = selectElement(".allComment");
 var inputComment = selectElement(".input-footer").querySelector(".input-comment");
+var tempAlert = document.getElementById("alert");
 
 
 const createComment = () => {
@@ -17,19 +18,27 @@ const createComment = () => {
     };
     setTimeout(() => {
         inputComment.value = "";
-        window.alert("comment send.");
     });
     newComment(comment);
+    addAlertThenRemove("comment send.", "fa fa-check", "success-alert");
 };
 
 const scrollToBottom = () => {
     allComment.scrollTop = allComment.scrollHeight;
 }
 
+const validText = (event) => {
+    return event.keyCode === 13 && !event.shiftKey;
+};
+
 inputComment.addEventListener("keypress", (event) => {
-    if (event.keyCode === 13 && inputComment.value.trim() && !event.shiftKey && !event.ctrlKey) {
-        createComment();
-        scrollToBottom();
+    if (validText(event)) {
+        if (inputComment.value.trim()) {
+            createComment();
+            scrollToBottom();
+        } else {
+            addAlertThenRemove("type something!", "fas fa-pencil-alt", "warning-alert");
+        }
     }
 });
 
