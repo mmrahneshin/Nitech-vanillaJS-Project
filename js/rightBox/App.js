@@ -15,10 +15,10 @@ const createComment = () => {
         time: "Today . now",
         icons: []
     };
-    console.log(inputComment);
-    inputComment.value = "";
-    let xxx = selectElement('.input-comment');
-    xxx.value = '';
+    setTimeout(() => {
+        inputComment.value = "";
+        window.alert("comment send.");
+    });
     newComment(comment);
 };
 
