@@ -15,15 +15,6 @@
 </head>
 
 <body>
-    <template id="alert">
-        <div class="notification">
-            <div class="flexible">
-                <p class="massage"></p>
-                <i class="alert-icon"></i>
-            </div>
-            <button class="close">&times;</button>
-        </div>
-    </template>
     <div class="box-container">
         <div class="center-box">
 
@@ -152,6 +143,17 @@
             </div>
         </div>
     </div>
+    <div class="notify"></div>
+    <template id="alert">
+        <div class="notification">
+            <div class="flexible">
+                <p class="massage"></p>
+                <i class="alert-icon"></i>
+            </div>
+            <button class="close">&times;</button>
+        </div>
+    </template>
+    <script src="./js/rightBox/SelectElement.js"></script>
     <script src="./js/rightBox/DefaultComments.js"></script>
     <script src="./js/rightBox/LocalStorage.js"></script>
     <script src="./js/rightBox/Alert.js"></script>

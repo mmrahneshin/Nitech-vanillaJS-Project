@@ -1,14 +1,22 @@
+.notify {
+    position: fixed;
+    display: block;
+    right: 0px;
+    top: 0px;
+}
+
 .notification {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    position: fixed;
+    position: relative;
     right: 0px;
     top: 0px;
     margin: 10px;
     padding: 10px;
     border-radius: 5px;
     box-shadow: 0 0 15px 5px #ccc;
+    transition: all 0.5s ease-in;
 }
 
 .flexible {
@@ -17,7 +25,8 @@
     justify-content: center;
 }
 
-.flexible p {
+.flexible p,
+.flexible i {
     margin-right: 10px;
 }
 
@@ -34,6 +43,7 @@
 }
 
 .success-alert {
+    animation: right-to-left 0.5s ease;
     background-color: #a8f0c6;
     border-left: 5px solid #3c8059;
 }
@@ -47,8 +57,19 @@
 }
 
 .warning-alert {
+    animation: right-to-left 0.5s ease;
     background-color: #ffd48a;
     border-left: 5px solid #b1740a;
+}
+
+@keyframes right-to-left {
+    0% {
+        opacity: 0;
+        transform: translateX(100%);
+    }
+    100% {
+        transform: translateX(0);
+    }
 }
 
 .warning-alert p {
@@ -57,4 +78,18 @@
 
 .warning-alert i {
     color: #6d4500;
+}
+
+.remove {
+    animation: left-to-right 0.5s ease;
+}
+
+@keyframes left-to-right {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        opacity: 0;
+        transform: translateX(100%);
+    }
 }

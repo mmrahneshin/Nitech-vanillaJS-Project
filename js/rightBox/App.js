@@ -1,7 +1,3 @@
-const selectElement = (name) => {
-    return document.querySelector(name);
-};
-
 var tempComment = document.getElementById("temp-comment");
 var allComment = selectElement(".allComment");
 var inputComment = selectElement(".input-footer").querySelector(".input-comment");

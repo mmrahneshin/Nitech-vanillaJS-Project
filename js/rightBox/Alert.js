@@ -1,6 +1,15 @@
-const remove = (alert) => {
-    alert.querySelector(".close").addEventListener("click", () => {
-        alert.remove();
+var notify = selectElement(".notify");
+
+const removeTransition = (temolate) => {
+    temolate.classList.add("remove");
+
+    setTimeout(() => {
+        temolate.remove()
+    }, 490);
+};
+const removeButton = (temolate) => {
+    temolate.querySelector(".close").addEventListener("click", () => {
+        removeTransition(temolate);
     });
 };
 
@@ -14,9 +23,9 @@ const addAlertThenRemove = (massage, icon, className) => {
     template.querySelector(".massage").innerHTML = massage;
     template.querySelector(".alert-icon").className = icon;
     template.classList.add(className);
-    document.body.appendChild(template);
+    notify.appendChild(template);
     setTimeout(() => {
-        template.remove();
-    }, 2000);
-    remove(template);
+        removeTransition(template);
+    }, 3000);
+    removeButton(template);
 };
