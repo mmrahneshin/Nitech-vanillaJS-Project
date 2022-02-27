@@ -7,7 +7,7 @@ var tempAlert = document.getElementById("alert");
 const createComment = () => {
     let comment = {
         id: getDataAsJSON("comments").length + 1,
-        user: document.cookie,
+        user: getUsername(),
         text: inputComment.value,
         time: "Today . now",
         icons: []
@@ -81,7 +81,7 @@ const mounted = () => {
         customFor(result, addCommentToPage);
     } else {
         customFor(defaultComment, newComment);
-        document.cookie = "Mammad";
+        setCookie("Mammad");
     }
 };
 
