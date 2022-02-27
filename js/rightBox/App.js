@@ -9,7 +9,7 @@ const createComment = () => {
         id: getDataAsJSON("comments").length + 1,
         user: getUsername(),
         text: inputComment.value,
-        time: "Today . now",
+        time: getTimeAndDate(),
         icons: []
     };
     setTimeout(() => {
