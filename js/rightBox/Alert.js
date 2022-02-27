@@ -1,15 +1,15 @@
 var notify = selectElement(".notify");
 
-const removeTransition = (temolate) => {
-    temolate.classList.add("remove");
+const removeTransition = (notification) => {
+    notification.classList.add("remove");
 
-    temolate.addEventListener("transitionend", e => {
-      temolate.remove();
+    notification.addEventListener("transitionend", e => {
+        notification.remove();
     });
 };
-const removeButton = (temolate) => {
-    temolate.querySelector(".close").addEventListener("click", () => {
-        removeTransition(temolate);
+const removeButton = (notification) => {
+    notification.querySelector(".close").addEventListener("click", () => {
+        removeTransition(notification);
     });
 };
 
