@@ -81,15 +81,5 @@
 }
 
 .remove {
-    animation: left-to-right 0.5s ease;
-}
-
-@keyframes left-to-right {
-    0% {
-        transform: translateX(0);
-    }
-    100% {
-        opacity: 0;
-        transform: translateX(100%);
-    }
+    transform: translateX(0) translateX(100%);
 }

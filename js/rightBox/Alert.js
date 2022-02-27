@@ -3,9 +3,9 @@ var notify = selectElement(".notify");
 const removeTransition = (temolate) => {
     temolate.classList.add("remove");
 
-    setTimeout(() => {
-        temolate.remove()
-    }, 490);
+    temolate.addEventListener("transitionend", e => {
+      temolate.remove();
+    });
 };
 const removeButton = (temolate) => {
     temolate.querySelector(".close").addEventListener("click", () => {
