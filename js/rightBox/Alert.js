@@ -1,3 +1,4 @@
+var tempAlert = document.getElementById("alert");
 var notify = selectElement(".notify");
 
 const removeTransition = (notification) => {
