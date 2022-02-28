@@ -1,30 +1,24 @@
 var tempComment = document.getElementById("temp-comment");
+var tempEmojiButton = document.getElementById("emoji-button");
 var allComment = selectElement(".allComment");
 var inputComment = selectElement(".input-footer").querySelector(".input-comment");
 
-const defaultComment = [{
-        id: 1,
-        user: "Johannes Gerber",
-        text: "Just found this here on medium as an inspiration. Thought it could be helpful for thes task...",
-        time: "Yesterday . 4:29 pm",
-        icons: ["&#128293;", "&#128591;"]
-    },
-    {
-        id: 2,
-        user: "Mathias Brehm",
-        text: "Nice, thx, Will check it!",
-        time: "Today . 26 min",
-        icons: ["&#128077;"]
-    },
-];
+const commentStorage = [];
+
+
+const addCommentToCommentStorage = (comment) => {
+    commentStorage.push(comment);
+};
 
 const createComment = () => {
     let comment = {
-        id: getDataAsJSON("comments").length + 1,
+        id: getDataAsJSON("comments") ? getDataAsJSON("comments").length + 1 : 1,
         user: getUsername(),
         text: inputComment.value,
         time: getTimeAndDate(),
-        icons: []
+        icons: [{
+            code: "&#128077;"
+        }]
     };
     setTimeout(() => {
         inputComment.value = "";
@@ -35,7 +29,7 @@ const createComment = () => {
 
 const scrollToBottom = () => {
     allComment.scrollTop = allComment.scrollHeight;
-}
+};
 
 const validText = (event) => {
     return event.keyCode === 13 && !event.shiftKey;
@@ -52,16 +46,39 @@ inputComment.addEventListener("keypress", (event) => {
     }
 });
 
+const updateCommentStorage = (comment) => {
+    let index = commentStorage.findIndex(item => item.id === comment.id);
+    commentStorage[index] = comment;
+};
+
+const updateComment = (comment, codeEmoji) => {
+    comment.icons = comment.icons.filter(item => item.code !== "&#" + codeEmoji.codePointAt() + ";");
+};
+
+const removeEvent = (comment, emojiButton) => {
+    emojiButton.addEventListener("click", () => {
+        updateComment(comment, emojiButton.innerHTML);
+        updateCommentStorage(comment);
+        updateStorage(commentStorage, "comments");
+        emojiButton.remove();
+    });
+};
+
+const addEventForReadctions = (comment, template) => {
+    removeEvent(comment, template.querySelector(".emoji").lastChild);
+};
+
 const createEmojiButton = (backgroundColor, emoji, template) => {
-    let emojiButton = document.createElement("button");
+    const emojiButton = tempEmojiButton.content.firstElementChild.cloneNode(true);
     emojiButton.style.backgroundColor = backgroundColor;
     emojiButton.innerHTML = emoji;
     template.querySelector(".emoji").appendChild(emojiButton);
 };
 
-const appendEmojiButton = (icon, template) => {
-    icon.forEach(emoji => {
-        createEmojiButton("#E9EDF2", emoji, template);
+const appendEmojiButton = (comment, template) => {
+    comment.icons.forEach(emoji => {
+        createEmojiButton("#E9EDF2", emoji.code, template);
+        addEventForReadctions(comment, template);
     });
     createEmojiButton("#f6f8f9", "&#128512;", template);
 };
@@ -72,11 +89,12 @@ const addCommentToPage = (comment) => {
     template.querySelector(".username").innerHTML = comment.user;
     template.querySelector(".text").innerHTML = comment.text;
     template.querySelector(".time").innerHTML = comment.time;
-    appendEmojiButton(comment.icons, template);
+    appendEmojiButton(comment, template);
     allComment.appendChild(template);
 };
 
 const newComment = (comment) => {
-    saveLocalStorage(comment, "comments");
+    addCommentToCommentStorage(comment);
     addCommentToPage(comment);
+    updateStorage(commentStorage, "comments");
 };

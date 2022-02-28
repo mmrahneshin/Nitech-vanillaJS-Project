@@ -6,13 +6,15 @@ const getDataAsJSON = (name) => {
     return JSON.parse(getData(name));
 };
 
-const saveLocalStorage = (comment, name) => {
-    let data;
-    if (getData(name) === null) {
-        data = [];
-    } else {
-        data = getDataAsJSON(name);
-    }
-    data.push(comment);
+const setData = (data, name) => {
     localStorage.setItem(name, JSON.stringify(data));
+};
+
+const remove = (name) => {
+    localStorage.removeItem(name);
+};
+
+const updateStorage = (data, name) => {
+    remove(name);
+    setData(data, name);
 };
