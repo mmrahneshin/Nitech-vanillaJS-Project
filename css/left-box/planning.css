@@ -1,0 +1,13 @@
+.planning {
+    margin-top: 15px;
+    margin-left: 10px;
+}
+
+.planning p {
+    margin-right: 10px;
+    color: #839cb5;
+}
+
+.planning hr {
+    color: rgb(224, 224, 224, 0.3);
+}

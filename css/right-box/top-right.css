@@ -1,0 +1,24 @@
+.top-right-box {
+    display: flex;
+    justify-content: space-between;
+}
+
+.top-right-box h6 {
+    margin: 5px 0px 0px 5px;
+    color: #61819f;
+    font-size: 15px;
+}
+
+.top-right-box button {
+    color: #61819f;
+    background-color: #f6f8f9;
+    margin: 5px 5px;
+    border-radius: 50%;
+    font-size: 15px;
+    border: none;
+    cursor: pointer;
+}
+
+.top-right-box button:hover {
+    background-color: #f6f8f9;
+}

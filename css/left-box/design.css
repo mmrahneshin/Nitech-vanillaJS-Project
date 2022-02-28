@@ -1,0 +1,13 @@
+.design {
+    display: block;
+    margin-left: 10px;
+}
+
+.design p {
+    margin-right: 10px;
+    color: #839cb5;
+}
+
+.design hr {
+    color: rgb(224, 224, 224, 0.3);
+}

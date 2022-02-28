@@ -77,6 +77,6 @@ const addCommentToPage = (comment) => {
 };
 
 const newComment = (comment) => {
-    saveLocalStorage(comment);
+    saveLocalStorage(comment, "comments");
     addCommentToPage(comment);
 };

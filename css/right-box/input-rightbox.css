@@ -1,3 +1,11 @@
+.footer-rightbox {
+    position: absolute;
+    bottom: 5px;
+    width: 100%;
+    left: 0;
+    padding: 0px 10px;
+}
+
 .input-footer {
     display: flex;
     align-items: center;
