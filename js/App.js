@@ -9,6 +9,7 @@ const mounted = () => {
     if (result) {
         customFor(result, newComment);
     }
+    scrollToBottom();
     setCookie("Mammad");
 };
 

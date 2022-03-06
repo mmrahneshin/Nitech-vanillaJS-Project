@@ -31,6 +31,7 @@
 
 .emoji {
     display: flex;
+    position: relative;
     align-items: center;
 }
 
@@ -42,6 +43,26 @@
     width: 30px;
     cursor: pointer;
 }
+
+.select-emoji {
+    position: relative;
+}
+
+.drop-down {
+    position: absolute;
+    /* height: auto; */
+    /* margin-top: 100px; */
+}
+
+.drop-down button {
+    display: none;
+    margin-top: 2px;
+}
+
+
+/* .drop-down>button {
+    display: block;
+} */
 
 
 /* #E9EDF2 */
