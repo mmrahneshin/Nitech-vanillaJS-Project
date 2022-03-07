@@ -6,8 +6,6 @@ var tempSelectEmoji = document.getElementById("temp-select-emoji");
 var tempDropDown = document.getElementById("temp-drop-down");
 const commentStorage = [];
 
-console.log(tempEmojiButton);
-
 const addCommentToCommentStorage = (comment) => {
     commentStorage.push(comment);
 };
@@ -51,17 +49,17 @@ const updateCommentStorage = (comment) => {
     commentStorage[index] = comment;
 };
 
-const removeEmojiFromComment = (comment, codeEmoji) => {
-    comment.icons = comment.icons.filter(item => item.code !== "&#" + codeEmoji.codePointAt() + ";");
-};
+
 
 const addEmojiToComment = (comment, codeEmoji) => {
     let codeIcon = "&#" + codeEmoji.codePointAt() + ";";
     let iconObject = {
         code: codeIcon,
-        count: 1
+        count: 1,
+        keyValue: codeEmoji
     };
     comment.icons.push(iconObject);
+    return iconObject;
 };
 
 const update = (comment) => {
@@ -69,23 +67,50 @@ const update = (comment) => {
     updateStorage(commentStorage, "comments");
 };
 
-const removeEvent = (comment, emojiButton) => {
+const showUpdatedEmoji = (item, template) => {
+    template.querySelector(".emoji").querySelector(".reaction").querySelector("." + item.keyValue).innerHTML = item.code + `<p>${item.count}</p>`;
+};
+
+const decreaseCountOfEmoji = (item, template) => {
+    item.count--;
+    showUpdatedEmoji(item, template);
+};
+
+const increaseCountOfEmoji = (item, template) => {
+    item.count++;
+    showUpdatedEmoji(item, template);
+};
+
+const removeEmojiFromComment = (comment, codeEmoji) => {
+    comment.icons = comment.icons.filter(item => item.keyValue !== codeEmoji);
+};
+
+const removeORDecreaseEvent = (comment, emojiButton, template) => {
     emojiButton.addEventListener("click", () => {
-        removeEmojiFromComment(comment, emojiButton.innerHTML);
-        update(comment);
-        emojiButton.remove();
+        comment.icons.map(item => {
+            if (item.keyValue === emojiButton.className) {
+                if (item.count <= 1) {
+                    removeEmojiFromComment(comment, emojiButton.className);
+                    emojiButton.remove();
+                    update(comment);
+                } else {
+                    decreaseCountOfEmoji(item, template);
+                    update(comment);
+                }
+            }
+        });
     });
 };
 
 const addEventForReactions = (comment, template) => {
-    removeEvent(comment, template.querySelector(".reaction").lastChild);
+    removeORDecreaseEvent(comment, template.querySelector(".reaction").lastChild, template);
 };
 
-const createReactionButton = (backgroundColor, emoji, template, className) => {
+const createReactionButton = (backgroundColor, item, template, className) => {
     const emojiButton = tempEmojiButton.content.firstElementChild.cloneNode(true);
     emojiButton.style.backgroundColor = backgroundColor;
-    emojiButton.innerHTML = emoji + "<p>1</p>";
-    emojiButton.setAttribute('class', "k" + emoji);
+    emojiButton.innerHTML = item.code + `<p>${item.count}</p>`;
+    emojiButton.setAttribute('class', item.keyValue);
     template.querySelector(className).appendChild(emojiButton);
 };
 
@@ -93,26 +118,15 @@ const createSelectButton = (backgroundColor, emoji, template, className) => {
     const emojiButton = tempEmojiButton.content.firstElementChild.cloneNode(true);
     emojiButton.style.backgroundColor = backgroundColor;
     emojiButton.innerHTML = emoji;
-    emojiButton.setAttribute('id', emoji)
+    emojiButton.setAttribute('id', emoji);
     template.querySelector(className).appendChild(emojiButton);
-};
-
-const showUpdatedEmoji = (count, codeString, template) => {
-    console.log(template.querySelector(".emoji").querySelector(".reaction"));
-    template.querySelector(".emoji").querySelector(".reaction").querySelector(".k" + codeString).innerHTML = codeString + `<p>${count}</p>`;
-};
-
-const updateCountOfEmoji = (item, codeString, template) => {
-    item.count++;
-    showUpdatedEmoji(item.count, codeString, template);
 };
 
 const isValidEmoji = (comment, codeEmoji, template) => {
     let bool = false;
-    let codeString = "&#" + codeEmoji.codePointAt() + ";";
     comment.icons.map(item => {
-        if (item.code === codeString) {
-            updateCountOfEmoji(item, codeString, template);
+        if (item.keyValue === codeEmoji) {
+            increaseCountOfEmoji(item, template);
             bool = true;
         }
     });
@@ -126,8 +140,8 @@ const addEventForDropdownButtons = (dropDown, template, comment) => {
             return;
         }
         if (!isValidEmoji(comment, event.target.innerHTML, template)) {
-            addEmojiToComment(comment, event.target.innerHTML);
-            createReactionButton("#E9EDF2", event.target.innerHTML, template, ".reaction");
+            let icon = addEmojiToComment(comment, event.target.innerHTML);
+            createReactionButton("#E9EDF2", icon, template, ".reaction");
         }
         update(comment);
         addEventForReactions(comment, template);
@@ -139,16 +153,16 @@ const selectEvent = (selectEmojiDiv, template, comment) => {
     selectEmojiDiv.firstElementChild.addEventListener("click", () => {
         if (dropDown.style.display === "block") {
             dropDown.style.display = "none";
-            addEventForDropdownButtons(dropDown, template, comment);
         } else {
             dropDown.style.display = "block";
+            addEventForDropdownButtons(dropDown, template, comment);
         }
     });
 };
 
 const appendEmojiButton = (comment, template) => {
-    comment.icons.forEach(emoji => {
-        createReactionButton("#E9EDF2", emoji.code, template, ".reaction");
+    comment.icons.forEach(item => {
+        createReactionButton("#E9EDF2", item, template, ".reaction");
         addEventForReactions(comment, template);
     });
     const selectEmoji = tempSelectEmoji.content.firstElementChild.cloneNode(true);
