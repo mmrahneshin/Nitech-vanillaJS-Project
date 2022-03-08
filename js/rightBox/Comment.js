@@ -85,6 +85,14 @@ const removeEmojiFromComment = (comment, codeEmoji) => {
     comment.icons = comment.icons.filter(item => item.keyValue !== codeEmoji);
 };
 
+const removeCondition = (item, template) => {
+    if (item.count <= 1) {
+        return true;
+    }
+    decreaseCountOfEmoji(item, template);
+    return false;
+};
+
 const removeORDecreaseEvent = (comment, emojiButton, template) => {
     emojiButton.addEventListener("click", () => {
         comment.icons.map(item => {
@@ -92,11 +100,10 @@ const removeORDecreaseEvent = (comment, emojiButton, template) => {
                 if (item.count <= 1) {
                     removeEmojiFromComment(comment, emojiButton.className);
                     emojiButton.remove();
-                    update(comment);
                 } else {
                     decreaseCountOfEmoji(item, template);
-                    update(comment);
                 }
+                update(comment);
             }
         });
     });
@@ -106,12 +113,13 @@ const addEventForReactions = (comment, template) => {
     removeORDecreaseEvent(comment, template.querySelector(".reaction").lastChild, template);
 };
 
-const createReactionButton = (backgroundColor, item, template, className) => {
+const createReactionButton = (backgroundColor, item, template, className, comment) => {
     const emojiButton = tempEmojiButton.content.firstElementChild.cloneNode(true);
     emojiButton.style.backgroundColor = backgroundColor;
     emojiButton.innerHTML = item.code + `<p>${item.count}</p>`;
     emojiButton.setAttribute('class', item.keyValue);
     template.querySelector(className).appendChild(emojiButton);
+    addEventForReactions(comment, template);
 };
 
 const createSelectButton = (backgroundColor, emoji, template, className) => {
@@ -141,10 +149,9 @@ const addEventForDropdownButtons = (dropDown, template, comment) => {
         }
         if (!isValidEmoji(comment, event.target.innerHTML, template)) {
             let icon = addEmojiToComment(comment, event.target.innerHTML);
-            createReactionButton("#E9EDF2", icon, template, ".reaction");
+            createReactionButton("#E9EDF2", icon, template, ".reaction", comment);
         }
         update(comment);
-        addEventForReactions(comment, template);
     });
 };
 
@@ -162,8 +169,8 @@ const selectEvent = (selectEmojiDiv, template, comment) => {
 
 const appendEmojiButton = (comment, template) => {
     comment.icons.forEach(item => {
-        createReactionButton("#E9EDF2", item, template, ".reaction");
-        addEventForReactions(comment, template);
+        createReactionButton("#E9EDF2", item, template, ".reaction", comment);
+
     });
     const selectEmoji = tempSelectEmoji.content.firstElementChild.cloneNode(true);
     const dropDown = tempDropDown.content.firstElementChild.cloneNode(true);
