@@ -6,6 +6,7 @@
 .comment {
     display: block;
     color: #394D60;
+    /* position: relative; */
     margin: 20px 0px 40px 5px
 }
 
@@ -20,8 +21,31 @@
     margin-top: 10px;
 }
 
-.comment i {
+.user i {
     margin-right: 10px;
+}
+
+.remove-edit {
+    display: flex;
+    float: right;
+    margin-right: 15px;
+}
+
+.remove-edit button:hover {
+    background-color: #d7dadb;
+}
+
+.remove-comment {
+    width: 15px;
+    height: 16px;
+    border: none;
+    border-radius: 5px;
+    color: #4b5966;
+    background-color: #f6f8f9;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .date {

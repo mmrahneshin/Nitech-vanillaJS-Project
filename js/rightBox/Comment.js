@@ -4,7 +4,8 @@ var allComment = selectElement(".allComment");
 var inputComment = selectElement(".input-footer").querySelector(".input-comment");
 var tempSelectEmoji = document.getElementById("temp-select-emoji");
 var tempDropDown = document.getElementById("temp-drop-down");
-const commentStorage = [];
+
+var commentStorage = [];
 
 const addCommentToCommentStorage = (comment) => {
     commentStorage.push(comment);
@@ -178,8 +179,18 @@ const appendEmojiButton = (comment, template) => {
     createSelectButton("#f6f8f9", "&#128512;", template.querySelector(".emoji"), ".select-emoji");
     selectEmoji.appendChild(dropDown);
     selectEvent(selectEmoji, template, comment);
-    // const dropDown = tempDropDown.content.firstElementChild.cloneNode(true);
-    // selectEmoji.appendChild(dropDown);
+};
+
+const removeCommentFromCommentStorage = (comment) => {
+    commentStorage = commentStorage.filter(item => item !== comment);
+};
+
+const removeCommentEvent = (comment, template) => {
+    template.querySelector(".remove-comment").addEventListener("click", () => {
+        template.remove();
+        removeCommentFromCommentStorage(comment);
+        updateStorage(commentStorage, "comments");
+    });
 };
 
 const addCommentToPage = (comment) => {
@@ -189,6 +200,7 @@ const addCommentToPage = (comment) => {
     template.querySelector(".text").innerHTML = comment.text;
     template.querySelector(".time").innerHTML = comment.time;
     appendEmojiButton(comment, template);
+    removeCommentEvent(comment, template);
     allComment.appendChild(template);
 };
 
