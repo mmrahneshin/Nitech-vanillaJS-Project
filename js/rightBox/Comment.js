@@ -187,9 +187,12 @@ const removeCommentFromCommentStorage = (comment) => {
 
 const removeCommentEvent = (comment, template) => {
     template.querySelector(".remove-comment").addEventListener("click", () => {
-        template.remove();
-        removeCommentFromCommentStorage(comment);
-        updateStorage(commentStorage, "comments");
+        var strconfirm = confirm("Are you sure you want to delete?");
+        if (strconfirm) {
+            template.remove();
+            removeCommentFromCommentStorage(comment);
+            updateStorage(commentStorage, "comments");
+        }
     });
 };
 
