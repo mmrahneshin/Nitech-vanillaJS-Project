@@ -86,14 +86,6 @@ const removeEmojiFromComment = (comment, codeEmoji) => {
     comment.icons = comment.icons.filter(item => item.keyValue !== codeEmoji);
 };
 
-const removeCondition = (item, template) => {
-    if (item.count <= 1) {
-        return true;
-    }
-    decreaseCountOfEmoji(item, template);
-    return false;
-};
-
 const removeORDecreaseEvent = (comment, emojiButton, template) => {
     emojiButton.addEventListener("click", () => {
         comment.icons.map(item => {
