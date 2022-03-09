@@ -67,6 +67,10 @@
     justify-content: center;
 }
 
+.remove-comment i {
+    pointer-events: none;
+}
+
 .date {
     font-size: 13px;
     color: #A3B6C8;
