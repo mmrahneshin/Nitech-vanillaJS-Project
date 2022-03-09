@@ -194,7 +194,7 @@ const addCommentToPage = (comment) => {
     template.querySelector(".username").innerHTML = comment.user;
     template.querySelector(".text").innerHTML = comment.text;
     template.querySelector(".time").innerHTML = comment.time;
-    template.querySelector('.remove-comment-test').setAttribute('comment', comment.id)
+    // template.querySelector('.remove-comment-test').setAttribute('comment', comment.id);
     appendEmojiButton(comment, template);
     removeCommentEvent(comment, template);
     allComment.appendChild(template);
@@ -210,27 +210,27 @@ const newComment = (comment) => {
 
 
 
-document.addEventListener('click', initEvents);
+// document.addEventListener('click', initEvents);
 
-function initEvents(e) {
-  if(e.target.className === 'remove-comment-test') {
-    let commentId = e.target.getAttribute('comment')
-    removeComment_test(commentId)
-  }
-}
+// function initEvents(e) {
+//   if(e.target.className === 'remove-comment-test') {
+//     let commentId = e.target.getAttribute('comment')
+//     removeComment_test(commentId)
+//   }
+// }
 
-function removeComment_test(commentId) {
-    removeCommentFromDocument_test(commentId)
-    removeCommentFromCommentStorage_test(commentId);
-    updateStorage(commentStorage, "comments");
-}
-function removeCommentFromDocument_test(commentId) {
-    document.querySelector('#comment-' + commentId).remove();
-}
-const removeCommentFromCommentStorage_test = (commentId) => {
-    commentStorage.forEach((item, index) => {
-        if (item.id == commentId) {
-            commentStorage.splice(index, 1)
-        }
-    })
-}
+// function removeComment_test(commentId) {
+//     removeCommentFromDocument_test(commentId)
+//     removeCommentFromCommentStorage_test(commentId);
+//     updateStorage(commentStorage, "comments");
+// }
+// function removeCommentFromDocument_test(commentId) {
+//     document.querySelector('#comment-' + commentId).remove();
+// }
+// const removeCommentFromCommentStorage_test = (commentId) => {
+//     commentStorage.forEach((item, index) => {
+//         if (item.id == commentId) {
+//             commentStorage.splice(index, 1)
+//         }
+//     })
+// }
