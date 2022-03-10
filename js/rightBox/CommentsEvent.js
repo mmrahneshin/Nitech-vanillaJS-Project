@@ -18,6 +18,13 @@ const update = (comment) => {
     updateStorage(commentStorage, "comments");
 };
 
+const showHideDropdown = (dropdown) => {
+    if (dropdown.style.display === "block") {
+        dropdown.style.display = "none";
+    } else {
+        dropdown.style.display = "block";
+    }
+};
 
 // input comment event-----------------------------------------------------------------------------
 
@@ -69,7 +76,7 @@ const removeCommentFromDocument = (commentId) => {
 };
 
 const removeCommentEvent = (event) => {
-    let commentId = event.target.getAttribute("comment");
+    let commentId = event.target.parentNode.getAttribute("comment");
     var strconfirm = confirm("Are you sure you want to delete?");
     if (strconfirm) {
         removeCommentFromDocument(commentId);
@@ -81,16 +88,73 @@ const removeCommentEvent = (event) => {
 // remove comment event-----------------------------------------------------------------------------
 
 
+// edit comment event-----------------------------------------------------------------------------
+
+const getP = (commentId) => {
+    return document.querySelector('#comment-' + commentId).querySelector(".text");
+};
+
+const getInput = (commentId) => {
+    return document.querySelector('#comment-' + commentId).querySelector(".editable-input");
+
+};
+
+const putTextToTextarea = (paragraph, textarea) => {
+    textarea.value = paragraph.innerHTML;
+};
+
+const fixDisplayStyle = (paragraph, textarea) => {
+    if (paragraph.style.display === "none") {
+        paragraph.style.display = "block";
+        textarea.parentNode.style.display = "none";
+    } else {
+        paragraph.style.display = "none";
+        textarea.parentNode.style.display = "flex";
+    }
+
+};
+
+const editCommentEvent = (event) => {
+    let commentId = event.target.parentNode.getAttribute("comment");
+    let paragraph = getP(commentId);
+    let textarea = getInput(commentId);
+    putTextToTextarea(paragraph, textarea);
+    fixDisplayStyle(paragraph, textarea);
+};
+
+const putTextToParagraph = (paragraph, textarea) => {
+    paragraph.innerHTML = textarea.value;
+};
+
+const submitEditEvent = (event) => {
+    let commentId = event.target.parentNode.getAttribute("comment");
+    let paragraph = getP(commentId);
+    let textarea = getInput(commentId);
+    if (textarea.value.trim()) {
+        putTextToParagraph(paragraph, textarea);
+        fixDisplayStyle(paragraph, textarea);
+        addAlertThenRemove("Successful editing", "fa fa-check", "success-alert");
+    } else {
+        addAlertThenRemove("type something!", "fas fa-pencil-alt", "warning-alert");
+    }
+};
+
+const cancelEditEvent = (event) => {
+    let commentId = event.target.parentNode.getAttribute("comment");
+    let paragraph = getP(commentId);
+    let textarea = getInput(commentId);
+    fixDisplayStyle(paragraph, textarea);
+};
+
+// edit comment event-----------------------------------------------------------------------------
+
+
 
 // select emoji event-----------------------------------------------------------------------------
 
 const selectEmojiEvent = (event) => {
     let dropDown = event.target.parentNode.querySelector(".drop-down");
-    if (dropDown.style.display === "block") {
-        dropDown.style.display = "none";
-    } else {
-        dropDown.style.display = "block";
-    }
+    showHideDropdown(dropDown);
 };
 
 // select emoji event-----------------------------------------------------------------------------
@@ -175,11 +239,36 @@ const addEventForReactions = (event) => {
     removeORDecreaseEvent(comment, event.target, commentHTML);
 };
 
-// reaction event-----------------------------------------------------------------------------
+// reaction event -----------------------------------------------------------------------------
+
+
+// emoji input event -----------------------------------------------------------------------------
+
+const emojiInputEvent = (event) => {
+    let dropdown = document.querySelector(".drop-down-input");
+    showHideDropdown(dropdown);
+};
+
+// emoji input event -----------------------------------------------------------------------------
+
+const inputDropdownEvent = (event) => {
+    let emoji = event.target.innerHTML;
+    inputComment.value += emoji;
+};
+
 
 const initEvents = (event) => {
     if (event.target.className === "remove-comment") {
         removeCommentEvent(event)
+    }
+    if (event.target.className === "edit-comment") {
+        editCommentEvent(event);
+    }
+    if (event.target.className === "submit-edit") {
+        submitEditEvent(event);
+    }
+    if (event.target.className === "cancel-edit") {
+        cancelEditEvent(event);
     }
     if (event.target.id === "&#128512;") {
         selectEmojiEvent(event);
@@ -189,6 +278,12 @@ const initEvents = (event) => {
     }
     if (event.target.className === "remove-btn") {
         addEventForReactions(event);
+    }
+    if (event.target.className === "emoji-select") {
+        emojiInputEvent(event);
+    }
+    if (event.target.className === "input-dropdown") {
+        inputDropdownEvent(event);
     }
 };
 

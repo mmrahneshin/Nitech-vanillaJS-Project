@@ -47,8 +47,10 @@ const addCommentToPage = (comment) => {
     template.querySelector(".username").innerHTML = comment.user;
     template.querySelector(".text").innerHTML = comment.text;
     template.querySelector(".time").innerHTML = comment.time;
-    template.querySelector('.remove-comment').setAttribute('comment', comment.id);
+    template.querySelector('.remove-edit').setAttribute('comment', comment.id);
     template.querySelector('.reaction').setAttribute('comment', comment.id);
+    template.querySelector('.edit-input').setAttribute('comment', comment.id);
+
 
     appendEmojiButton(comment, template);
     allComment.appendChild(template);

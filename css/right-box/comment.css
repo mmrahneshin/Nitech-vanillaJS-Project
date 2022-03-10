@@ -38,6 +38,45 @@
     margin-top: 10px;
 }
 
+.edit-input {
+    display: none;
+    align-items: center;
+    width: 100%;
+    padding-right: 3px;
+    margin-top: 5px;
+}
+
+.edit-input textarea[type="text"] {
+    resize: none;
+    width: 80%;
+    height: 28px;
+    padding-left: 4px;
+    padding-top: 3px;
+    font-size: medium;
+    border-radius: 5px;
+    color: #394d60;
+    border: solid 2px #e3e8ee;
+}
+
+.edit-input button {
+    width: 10%;
+    height: 28px;
+    margin-left: 5px;
+    cursor: pointer;
+    background-color: #ffffff;
+    border: solid 2px #e3e8ee;
+    border-radius: 5px;
+    color: #6281a0;
+}
+
+.edit-input button:hover {
+    background-color: #e3e8ee;
+}
+
+.edit-input i {
+    pointer-events: none;
+}
+
 .user {
     display: flex;
 }
@@ -54,9 +93,9 @@
     background-color: #d7dadb;
 }
 
-.remove-comment {
-    width: 15px;
-    height: 16px;
+.edit-comment {
+    width: 20px;
+    height: 20px;
     border: none;
     border-radius: 5px;
     color: #4b5966;
@@ -65,6 +104,26 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    margin-right: 5px;
+}
+
+.edit-comment i {
+    pointer-events: none;
+}
+
+.remove-comment {
+    width: 20px;
+    height: 20px;
+    font-size: medium;
+    border: none;
+    border-radius: 5px;
+    color: #4b5966;
+    background-color: #f6f8f9;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 2px;
 }
 
 .remove-comment i {
@@ -109,11 +168,3 @@
     margin-right: 0px;
     margin-top: 2px;
 }
-
-
-/* .drop-down>button {
-    display: block;
-} */
-
-
-/* #E9EDF2 */

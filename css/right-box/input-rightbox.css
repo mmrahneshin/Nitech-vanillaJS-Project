@@ -49,6 +49,7 @@
 }
 
 .drop-down-input button {
+    cursor: pointer;
     display: block;
     width: 25px;
     border-radius: 5px;
