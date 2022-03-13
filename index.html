@@ -12,9 +12,9 @@
     <link href="./css/left-box/form-design.css " rel="stylesheet" />
     <link href="./css/left-box/top-left.css " rel="stylesheet" />
     <!--right-box-->
-    <link href="./css/right-box/comment.css " rel="stylesheet" />
-    <link href="./css/right-box/input-rightbox.css " rel="stylesheet" />
-    <link href="./css/right-box/top-right.css " rel="stylesheet" />
+    <link href="./comment/css/comment.css " rel="stylesheet" />
+    <link href="./comment/css/input-rightbox.css " rel="stylesheet" />
+    <link href="./comment/css/top-right.css " rel="stylesheet" />
     <!--styles-->
     <link href="./css/alert.css " rel="stylesheet" />
     <link href="./css/styles.css " rel="stylesheet" />
@@ -26,7 +26,6 @@
 <body>
     <div class="box-container">
         <div class="center-box">
-
             <div class="left-box">
                 <div>
                     <div class="top-left-box">
@@ -123,79 +122,81 @@
                 </div>
             </div>
             <div class="right-box">
-                <div class="top-right-box">
-                    <h6>Comments</h6>
-                    <button>
-                        <i class="fa">&#xf00d;</i>
-                    </button>
-                </div>
-                <div class="allComment">
-                    <template id="temp-comment">
-                        <div class="comment">
-                            <div class="top-comment">
-                                <div class="user">
-                                    <i class="fas">&#xf2bd;</i>
-                                    <h4 class="username"></h4>
-                                </div>
-                                <div class="remove-edit">
-                                    <button class="edit-comment">
-                                        <i class="far">&#xf044;</i>
-                                    </button>
-                                    <button class="remove-comment">
-                                        <i class="fa">&#xf00d;</i>
-                                    </button>
-                                </div>
-                            </div>
-                            
-                            <div class="text-edit">
-                                <p class="text"></p>
-                                <div class="edit-input">
-                                    <textarea type="text" class="editable-input" ></textarea>
-                                    <button class="submit-edit">
-                                        <i class="fa">&#xf00c;</i>
-                                    </button>
-                                    <button class="cancel-edit">
-                                        <i class="fa">&#xf00d;</i>
-                                    </button>
-                                </div>
-                            </div>
-                            <p class="time"></p>
-                            <div class="emoji">
-                                <div class="reaction"></div>
-                            </div>
-                        </div>
-                    </template>
-                    <template id="emoji-button">
-                        <button class="remove-btn">
+                <div class="comments">
+                    <div class="top-right-box">
+                        <h6>Comments</h6>
+                        <button>
+                            <i class="fa">&#xf00d;</i>
                         </button>
-                    </template>
-                    <template id="temp-select-emoji">
-                        <div class="select-emoji"></div>
-                    </template>
-                    <template id="temp-drop-down">
-                        <div class="drop-down">
-                            <button class="drop-down-emoji">&#128077;</button>
-                            <button class="drop-down-emoji">&#128078;</button>
-                            <button class="drop-down-emoji">&#129505;</button>
-                            <button class="drop-down-emoji">&#128293;</button>
-                            <button class="drop-down-emoji">&#128513;</button>
-                            <button class="drop-down-emoji">&#128169;</button>
-                        </div>
-                    </template>
-                </div>
-                <div class="footer-rightbox">
-                    <div class="input-footer">
-                        <textarea class="input-comment" type="text" placeholder="Type something..."></textarea>
-                        <div class="drop-down-input">
-                            <button class="input-dropdown">&#128077;</button>
-                            <button class="input-dropdown">&#128078;</button>
-                            <button class="input-dropdown">&#129505;</button>
-                            <button class="input-dropdown">&#128293;</button>
-                            <button class="input-dropdown">&#128513;</button>
-                            <button class="input-dropdown">&#128169;</button>
-                        </div>
-                        <div class="emoji-input">
-                            <button class="emoji-select">&#128512;</button>
+                    </div>
+                    <div class="allComment">
+                        <template id="temp-comment">
+                            <div class="comment">
+                                <div class="top-comment">
+                                    <div class="user">
+                                        <i class="fas">&#xf2bd;</i>
+                                        <h4 class="username"></h4>
+                                    </div>
+                                    <div class="remove-edit">
+                                        <button class="edit-comment">
+                                            <i class="far">&#xf044;</i>
+                                        </button>
+                                        <button class="remove-comment">
+                                            <i class="fa">&#xf00d;</i>
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <div class="text-edit">
+                                    <p class="text"></p>
+                                    <div class="edit-input">
+                                        <textarea type="text" class="editable-input"></textarea>
+                                        <button class="submit-edit">
+                                            <i class="fa">&#xf00c;</i>
+                                        </button>
+                                        <button class="cancel-edit">
+                                            <i class="fa">&#xf00d;</i>
+                                        </button>
+                                    </div>
+                                </div>
+                                <p class="time"></p>
+                                <div class="emoji">
+                                    <div class="reaction"></div>
+                                </div>
+                            </div>
+                        </template>
+                        <template id="emoji-button">
+                            <button class="remove-btn">
+                            </button>
+                        </template>
+                        <template id="temp-select-emoji">
+                            <div class="select-emoji"></div>
+                        </template>
+                        <template id="temp-drop-down">
+                            <div class="drop-down">
+                                <button class="drop-down-emoji">&#128077;</button>
+                                <button class="drop-down-emoji">&#128078;</button>
+                                <button class="drop-down-emoji">&#129505;</button>
+                                <button class="drop-down-emoji">&#128293;</button>
+                                <button class="drop-down-emoji">&#128513;</button>
+                                <button class="drop-down-emoji">&#128169;</button>
+                            </div>
+                        </template>
+                    </div>
+                    <div class="footer-rightbox">
+                        <div class="input-footer">
+                            <textarea class="input-comment" type="text" placeholder="Type something..."></textarea>
+                            <div class="drop-down-input">
+                                <button class="input-dropdown">&#128077;</button>
+                                <button class="input-dropdown">&#128078;</button>
+                                <button class="input-dropdown">&#129505;</button>
+                                <button class="input-dropdown">&#128293;</button>
+                                <button class="input-dropdown">&#128513;</button>
+                                <button class="input-dropdown">&#128169;</button>
+                            </div>
+                            <div class="emoji-input">
+                                <button class="emoji-select">&#128512;</button>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -217,17 +218,17 @@
     <script src="./js/Storage.js"></script>
     <script src="./js/Alert.js"></script>
     <!--right-box-->
-    <script src="./js/rightBox/Date&Time.js"></script>
-    <script src="./js/rightBox/Comment.js"></script>
-    <script src="./js/rightBox/GlobalMethodForEvent.js"></script>
-    <script src="./js/rightBox/ReactionEvent.js"></script>
-    <script src="./js/rightBox/EmojiForInputEvent.js"></script>
-    <script src="./js/rightBox/EditCommentEvent.js"></script>
-    <script src="./js/rightBox/RemoveCommentEvent.js"></script>
-    <script src="./js/rightBox/SelectEmojiEvent.js"></script>
-    <script src="./js/rightBox/InputCommentEvent.js"></script>
-    <script src="./js/rightBox/DropdownEvent.js"></script>
-    <script src="./js/rightBox/InitEvent.js"></script>
+    <script src="./comment/js/Date&Time.js"></script>
+    <script src="./comment/js/Comment.js"></script>
+    <script src="./comment/js/GlobalMethodForEvent.js"></script>
+    <script src="./comment/js/ReactionEvent.js"></script>
+    <script src="./comment/js/EmojiForInputEvent.js"></script>
+    <script src="./comment/js/EditCommentEvent.js"></script>
+    <script src="./comment/js/RemoveCommentEvent.js"></script>
+    <script src="./comment/js/SelectEmojiEvent.js"></script>
+    <script src="./comment/js/InputCommentEvent.js"></script>
+    <script src="./comment/js/DropdownEvent.js"></script>
+    <script src="./comment/js/InitEvent.js"></script>
 
     <!--right-box-->
     <script src="./js/App.js"></script>

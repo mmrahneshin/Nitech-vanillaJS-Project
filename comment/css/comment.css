@@ -1,3 +1,7 @@
+.comments {
+    width: 100%;
+}
+
 .allComment {
     height: 475px;
     overflow-x: auto;
