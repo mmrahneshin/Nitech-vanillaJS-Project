@@ -1,0 +1,23 @@
+img {
+    max-width: 100%;
+    height: 100%;
+}
+
+.title {
+    position: absolute;
+    left: 50px;
+    top: 50px;
+    padding-right: 200px;
+   
+}
+
+.title h3 {
+    color: #f6f8f9;
+}
+
+.text {
+    position: absolute;
+    left: 50px;
+    top: 150px;
+    padding-right:20px;
+}
