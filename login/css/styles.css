@@ -1,0 +1,55 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    font-family: Sans-serif, Tahoma, Geneva, Verdana;
+    letter-spacing: 0.2px;
+    color: #24303b;
+}
+
+::placeholder {
+    color: #8fa4bb;
+    font-size: 12px;
+}
+
+.box-container {
+    background-color: #4352e1;
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    align-items: center;
+    justify-content: center;
+}
+
+.center-box {
+    background-color: #ffffff;
+    display: flex;
+    height: auto;
+    width: 1300px;
+}
+
+
+/* right box css */
+
+.right-box {
+    position: relative;
+    width: 550px;
+    padding: 20px 60px 50px 60px;
+    background-color: #f6f8f9;
+    border: solid 2px #e7ebf1;
+}
+
+
+/* right box css */
+
+
+/*left box css*/
+
+.left-box {
+    width: 60%;
+    position: relative;
+    /* padding: 11px 15px 11px 20px; */
+}
+
+
+/*left box css*/
