@@ -3,6 +3,8 @@
     <meta name="viewport" content="width=device-width , initial-scale=1" />
     <link href="./login/css/styles.css " rel="stylesheet" />
     <link href="./login/css/mobile-version.css " rel="stylesheet" />
+    <link href="./login/css/alert.css " rel="stylesheet" />
+
 
     <!--left box-->
     <link href="./login/css/leftbox/styles.css " rel="stylesheet" />
@@ -38,7 +40,7 @@
                         <div class="input">
                             <div class="username">
                                 <label for="username">Username</label>
-                                <input type="text" id="username" placeholder="Email or Phone Number">
+                                <input type="text" id="username" placeholder="Email">
                             </div>
                             <div class="password">
                                 <label for="password">Password</label>
@@ -55,7 +57,7 @@
                             </div>
                         </div>
                         <div class="sign-in-button">
-                            <button type="submit">Sign in</button>
+                            <button type="submit" class="login-button">Sign in</button>
                         </div>
                         <div class="sign-up">
                             <p>Don't have an account yet? <a href="signup.html">Join nitech</a></p>
@@ -65,4 +67,20 @@
             </div>
         </div>
     </div>
+    <div class="notify"></div>
+    <template id="alert">
+        <div class="notification">
+            <div class="flexible">
+                <p class="massage"></p>
+                <i class="alert-icon"></i>
+            </div>
+            <button class="close">&times;</button>
+        </div>
+    </template>
+    <script src="/login/js/SelectElement.js"></script>
+    <script src="/login/js/Alert.js"></script>
+
+    <script src="/login/js/InputEvent.js"></script>
+    <script src="/login/js/Login.js"></script>
+    <script src="/login/js/InitEvent.js"></script>
 </body>
