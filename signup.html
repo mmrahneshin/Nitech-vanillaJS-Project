@@ -1,7 +1,12 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
 <head>
   <title>signup nitech</title>
   <meta name="viewport" content="width=device-width , initial-scale=1" />
   <link href="./signup/css/styles.css " rel="stylesheet" />
+  <link href="./signup/css/alert.css " rel="stylesheet" />
+
 
   <!--left box-->
   <link href="./signup/css/leftbox/styles.css " rel="stylesheet" />
@@ -62,11 +67,11 @@
               <div class="inputs">
                 <div class="password">
                   <label for="password">Password</label>
-                  <input type="text" id="password" />
+                  <input type="password" id="password" />
                 </div>
                 <div class="confirmPassword">
                   <label for="confirmPassword">Confirm Password</label>
-                  <input type="text" id="confirmPassword" />
+                  <input type="password" id="confirmPassword" />
                 </div>
               </div>
             </div>
@@ -77,12 +82,12 @@
               </div>
               <div class="checkBox">
                 <input id="accept" type="checkbox" />
-                <label for="accept">I agree to all the <a>Term</a>, <a>Privacy Policy</a> and
+                <label for="accept" id="accept-label">I agree to all the <a>Term</a>, <a>Privacy Policy</a> and
                   <a>Fees</a></label>
               </div>
             </div>
             <div class="sign-up-button">
-              <button type="submit">Create Account</button>
+              <button type="submit" class="signup-button">Create Account</button>
             </div>
             <div class="sign-in">
               <p>Don't have an account yet? <a href="login.html">Log in</a></p>
@@ -92,4 +97,22 @@
       </div>
     </div>
   </div>
+  <div class="notify"></div>
+  <template id="alert">
+    <div class="notification">
+      <div class="flexible">
+        <p class="massage"></p>
+        <i class="alert-icon"></i>
+      </div>
+      <button class="close">&times;</button>
+    </div>
+  </template>
+
+  <script src="/signup/js/SelectElement.js"></script>
+  <script src="/signup/js/Alert.js"></script>
+  <script src="/signup/js/InputEvent.js"></script>
+  <script src="/signup/js/SignUp.js"></script>
+  <script src="/signup/js/InitEvents.js"></script>
 </body>
+
+</html>

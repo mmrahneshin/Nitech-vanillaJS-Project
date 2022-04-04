@@ -10,16 +10,15 @@ const validateEmail = (email) => {
 };
 
 const validateLogin = () => {
-    if (!username.value.trim() || !password.value.trim()) {
-        if (!username.value.trim()) {
-            username.style.borderColor = "red";
-            addAlertThenRemove("username is empty!", "fas fa-pencil-alt", "warning-alert");
-        }
-        if (!password.value.trim()) {
-            password.style.borderColor = "red";
-            addAlertThenRemove("password is empty!", "fas fa-pencil-alt", "warning-alert");
-        }
+    if (!username.value.trim()) {
+        username.style.borderColor = "red";
+        addAlertThenRemove("username is empty!", "fas fa-pencil-alt", "warning-alert");
     }
+    if (!password.value.trim()) {
+        password.style.borderColor = "red";
+        addAlertThenRemove("password is empty!", "fas fa-pencil-alt", "warning-alert");
+    }
+
     if (!validateEmail(username.value) && username.value.trim()) {
         username.style.borderColor = "red";
         addAlertThenRemove("write your email correctly!", "fas fa-pencil-alt", "warning-alert");
