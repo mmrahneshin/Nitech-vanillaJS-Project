@@ -1,5 +1,9 @@
 const mounted = () => {
-    commentMain();
+    if (getCookie()) {
+        commentMain();
+    } else {
+        window.location.href = "login.html";
+    }
 };
 
 mounted();
