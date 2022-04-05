@@ -23,11 +23,15 @@ const fixDisplayStyle = (paragraph, textarea) => {
 };
 
 const editCommentEvent = (event) => {
-    let commentId = event.target.parentNode.getAttribute("comment");
-    let paragraph = getP(commentId);
-    let textarea = getInput(commentId);
-    putTextToTextarea(paragraph, textarea);
-    fixDisplayStyle(paragraph, textarea);
+    if (event.target.parentNode.parentNode.children[0].children[1].innerHTML === getUsername()) {
+        let commentId = event.target.parentNode.getAttribute("comment");
+        let paragraph = getP(commentId);
+        let textarea = getInput(commentId);
+        putTextToTextarea(paragraph, textarea);
+        fixDisplayStyle(paragraph, textarea);
+    } else {
+        addAlertThenRemove("this comment isn't yours!", "fa fa-close", "danger-alert");
+    }
 };
 
 const putTextToParagraph = (paragraph, textarea) => {

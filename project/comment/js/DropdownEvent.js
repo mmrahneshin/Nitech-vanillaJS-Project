@@ -5,9 +5,23 @@ const increaseCountOfEmoji = (item, commentHTML) => {
 
 const isValidEmoji = (comment, codeEmoji, commentHTML) => {
     let bool = false;
+    let loginAccount = getUsername();
+    let checkAccount = true;
+
+    comment.icons.map(item => {
+        item.accounts.map((account) => {
+            if (account === loginAccount) {
+                checkAccount = false;
+                bool = true;
+            }
+        });
+    });
     comment.icons.map(item => {
         if (item.keyValue === codeEmoji) {
-            increaseCountOfEmoji(item, commentHTML);
+            if (checkAccount) {
+                item.accounts.push(loginAccount);
+                increaseCountOfEmoji(item, commentHTML);
+            }
             bool = true;
         }
     });
@@ -17,6 +31,7 @@ const isValidEmoji = (comment, codeEmoji, commentHTML) => {
 const addEmojiToComment = (comment, codeEmoji) => {
     let codeIcon = "&#" + codeEmoji.codePointAt() + ";";
     let iconObject = {
+        accounts: [getUsername()],
         code: codeIcon,
         count: 1,
         keyValue: codeEmoji

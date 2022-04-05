@@ -2,21 +2,31 @@ const removeEmojiFromComment = (comment, codeEmoji) => {
     comment.icons = comment.icons.filter(item => item.keyValue !== codeEmoji);
 };
 
-const decreaseCountOfEmoji = (item, template) => {
+const decreaseCountOfEmoji = (item, template, loginAccount) => {
+    item.accounts = item.accounts.filter(account => account !== loginAccount);
     item.count--;
     showUpdatedEmoji(item, template);
 };
 
 const removeORDecreaseEvent = (comment, emojiButton, commentHTML) => {
+    let loginAccount = getUsername();
     comment.icons.map(item => {
-        if (item.keyValue === emojiButton.id) {
-            if (item.count <= 1) {
-                removeEmojiFromComment(comment, emojiButton.id);
-                emojiButton.remove();
-            } else {
-                decreaseCountOfEmoji(item, commentHTML);
+        let checkAccount = false;
+        item.accounts.map(account => {
+            if (account === loginAccount) {
+                checkAccount = true;
             }
-            update(comment);
+        });
+        if (item.keyValue === emojiButton.id) {
+            if (checkAccount) {
+                if (item.count <= 1) {
+                    removeEmojiFromComment(comment, emojiButton.id);
+                    emojiButton.remove();
+                } else {
+                    decreaseCountOfEmoji(item, commentHTML, loginAccount);
+                }
+                update(comment);
+            }
         }
     });
 };
