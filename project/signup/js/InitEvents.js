@@ -21,7 +21,7 @@ const initEvents = (event) => {
         inputAccept();
     }
     if (event.target.className === "signup-button") {
-        validateSignUp(event);
+        signup();
     }
 }
 
