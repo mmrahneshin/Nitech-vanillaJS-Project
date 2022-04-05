@@ -6,7 +6,7 @@ const initEvents = (event) => {
         inputPassword(event);
     }
     if (event.target.className === "login-button") {
-        validateLogin();
+        login();
     }
 };
 

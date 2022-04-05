@@ -112,7 +112,6 @@ const createAccount = () => {
 
         agree.checked = false;
     });
-
     newAccount(account);
     addAlertThenRemove("succesfully sign up!", "fa fa-check", "success-alert");
 }

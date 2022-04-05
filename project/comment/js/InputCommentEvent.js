@@ -1,6 +1,6 @@
 const createComment = () => {
     let comment = {
-        id: getDataAsJSON("comments") ? getDataAsJSON("comments")[getDataAsJSON("comments").length - 1].id + 1 : 1,
+        id: commentStorage.length ? commentStorage[commentStorage.length - 1].id + 1 : 1,
         user: getUsername(),
         text: inputComment.value,
         time: getTimeAndDate(),
