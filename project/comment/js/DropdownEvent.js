@@ -44,10 +44,11 @@ const dropDownEvent = (event) => {
     let commentId = event.target.parentNode.getAttribute("comment");
     let comment = findCommentById(commentId);
     let commentHTML = document.querySelector('#comment-' + commentId);
-
-    if (!isValidEmoji(comment, event.target.innerHTML, commentHTML)) {
-        let icon = addEmojiToComment(comment, event.target.innerHTML);
-        createReactionButton("#E9EDF2", icon, commentHTML, ".reaction");
+    if (getUsername()) {
+        if (!isValidEmoji(comment, event.target.innerHTML, commentHTML)) {
+            let icon = addEmojiToComment(comment, event.target.innerHTML);
+            createReactionButton("#E9EDF2", icon, commentHTML, ".reaction");
+        }
     }
     update(comment);
 }
