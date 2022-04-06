@@ -111,9 +111,12 @@ const createAccount = () => {
         confirmPasswordInput.style.borderColor = "#b4b7bb";
 
         agree.checked = false;
+
     });
     newAccount(account);
-    addAlertThenRemove("succesfully sign up!", "fa fa-check", "success-alert");
+    setUsernameCookie(account.email);
+    setTokenCookie(true);
+    window.location.href = "index.html";
 }
 
 const checkAccountStorages = () => {

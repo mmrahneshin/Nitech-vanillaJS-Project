@@ -12,6 +12,10 @@ const signupMain = () => {
 };
 
 const mounted = () => {
+    if (getToken()) {
+        signupMain();
+        window.location.href = "index.html";
+    }
     signupMain();
 };
 

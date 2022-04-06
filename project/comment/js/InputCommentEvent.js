@@ -22,12 +22,14 @@ const validText = (event) => {
 };
 
 inputComment.addEventListener("keypress", (event) => {
-    if (validText(event)) {
-        if (inputComment.value.trim()) {
-            createComment();
-            scrollToBottom();
-        } else {
-            addAlertThenRemove("type something!", "fas fa-pencil-alt", "warning-alert");
+    if (getUsername()) {
+        if (validText(event)) {
+            if (inputComment.value.trim()) {
+                createComment();
+                scrollToBottom();
+            } else {
+                addAlertThenRemove("type something!", "fas fa-pencil-alt", "warning-alert");
+            }
         }
     }
 });

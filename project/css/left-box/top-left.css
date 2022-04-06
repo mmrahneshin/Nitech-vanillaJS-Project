@@ -1,29 +1,33 @@
 .top-left-box {
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
 }
 
 .status-top-left {
-    color: #8099b3;
-    margin-left: -5px;
+  color: #8099b3;
+  margin-left: -5px;
 }
 
 .button-top-left {
-    display: flex;
+  display: flex;
 }
 
 .button-top-left button {
-    margin-left: 13px;
-    border: none;
-    border-radius: 5px;
-    width: 20px;
-    font-size: 16px;
-    cursor: pointer;
-    color: #6a88a5;
-    background-color: #ffffff;
+  margin-left: 13px;
+  border: none;
+  border-radius: 5px;
+  width: 20px;
+  font-size: 16px;
+  cursor: pointer;
+  color: #6a88a5;
+  background-color: #ffffff;
 }
 
 .button-top-left button:hover {
-    background-color: rgb(221, 220, 220);
+  background-color: rgb(221, 220, 220);
+}
+
+#exit i {
+  pointer-events: none;
 }

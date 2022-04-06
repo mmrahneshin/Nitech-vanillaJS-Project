@@ -54,7 +54,8 @@ const login = () => {
         let account = checkEmail();
         if (account) {
             if (checkPassword(account)) {
-                setCookie(account.email);
+                setUsernameCookie(account.email);
+                setTokenCookie(true);
                 window.location.href = "index.html";
             } else {
                 password.style.borderColor = "red";
